@@ -37,9 +37,9 @@ Now use these commands to login to docker hub and then build and push our custom
 
 	docker login -u backbasedevops -p backbase@123
 	
-  docker build -f Dockerfile-tomcat . -t backbasedevops/tomcat
+  	docker build -f Dockerfile-tomcat . -t backbasedevops/tomcat
 	docker build -f Dockerfile-nginx . -t backbasedevops/nginx
-  docker build -f Dockerfile-jenkins . -t backbasedevops/jenkins
+  	docker build -f Dockerfile-jenkins . -t backbasedevops/jenkins
 
 	docker push backbasedevops/nginx
 	docker push backbasedevops/tomcat
@@ -113,7 +113,7 @@ You will see the default tomcat page. Append the URL with '/sample/' to view the
   
   b.) Test the nginx deployment using below curl command:
 	
-		curl `minikube ip`:8080
+		curl `minikube ip`:30007
 
 This will give you a simple output like below:
 			
