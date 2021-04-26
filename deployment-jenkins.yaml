@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: jenkins
+  template:
+    metadata:
+      labels:
+        run: jenkins
+    spec:
+      containers:
+      - image: backbasedevops/jenkins
+        name: jenkins
+        ports:
+        - containerPort: 8080
+          hostPort: 8090
