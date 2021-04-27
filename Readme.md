@@ -50,6 +50,8 @@ Step-4: We are ready to create our deployments in kubernetes now. Run below comm
 
 	kubectl apply -f .
 	
+Please note that I have used hostPorts for tomcat (8080) and jenkins (8090) as they were having just 1 replica/pod. But for nginx, I haven't used any hostPort but created a nodePort service on nodePort: 30007, as nginx was having 3 replicas and would give hostPort conflict issue after first replica is started.	
+	
 Wait for the pods to come in ready state using this:
 
 	kubectl get pods -w
@@ -102,11 +104,11 @@ Then select 'Select Port to view on Host 1':
 
 ![image](https://user-images.githubusercontent.com/12583640/116049423-dfcba280-a693-11eb-9b43-19a0fabd47ea.png)
 
-Enter the port number '8080' in the text box next to the 'Display Port' button:
+Enter the port number '8080' in the text box next to the 'Display Port' button and hit enter:
  
 ![image](https://user-images.githubusercontent.com/12583640/116050623-53ba7a80-a695-11eb-9ede-e26956ec420c.png)
 
-You will see the default tomcat page. Append the URL with '/sample/' to view the content of sample.war file. It would like this:
+You will see the default tomcat page. Append the URL with '/sample/' and hit enter. It would look like this:
 
 ![image](https://user-images.githubusercontent.com/12583640/116051753-8ca71f00-a696-11eb-810e-9aee6b40513c.png)
 
